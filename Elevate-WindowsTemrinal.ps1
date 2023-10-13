@@ -2,7 +2,7 @@
 class WindowsTerminal{
     [string]$ProcessName = "WindowsTerminal" # The name of Windows Terminal Process shown in GET-PROCESS results [as of 10/13/23 the process name is WindowsTermainal]
     [string]$CommandName = "wt" # The command to run that opens/starts a new Windows Terminal [as of 10/13/23 the command is 'wt']
-    [int]$PID # Process ID show in GET-PROCESS results
+    [int32]$PID # Process ID show in GET-PROCESS results
 }
 
 # Create a new WindowsTerminal Object
