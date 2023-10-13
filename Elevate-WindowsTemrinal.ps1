@@ -14,12 +14,9 @@ start-process -FilePath $nonadminTerminal.CommandName -Verb Runas
 # Get the Process ID of the Admin Windows Terminal
 try {
     start-process -FilePath $nonadminTerminal.CommandName -Verb Runas
+    exit
+    # Stop-Process -Id $nonadminTerminal.PID -Force 
 }
 catch {
-    Write-Error 
+    Write-Host "Failed to open Windows Terminal with Admin Permissions `n $Error"
 }
-finally{
-    exit
-    # Stop-Process -Id $nonadminTerminal.PID -Force
-}
-$adminterminalPID = get-process | Where-Object {$_.Name -eq $nonadminProcess.Name -$_.Id -ne $terminalPID.Id} | Select-Object -Property ID 
